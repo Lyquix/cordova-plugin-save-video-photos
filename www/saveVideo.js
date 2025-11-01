@@ -1,12 +1,12 @@
 var exec = require('cordova/exec');
 
 /**
- * Save a video at file:// URI to Photos.
- * @param {string} uri - file:// or cdvfile:// path
- * @param {string|null} album - album name or null
- * @param {function} success
- * @param {function} error
+ * Save a video at file:// or cdvfile:// URI to Photos.
+ * @param {string} uri
+ * @param {string|null} album  Album name or null
+ * @param {Function} success
+ * @param {Function} error
  */
-exports.save = function(uri, album, success, error) {
-  exec(success, error, "SaveVideo", "save", [uri, album || null]);
+exports.save = function (uri, album, success, error) {
+  exec(success, error, 'SaveVideo', 'save', [uri, album || null]);
 };
