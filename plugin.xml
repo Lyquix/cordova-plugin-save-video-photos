@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="cordova-save-video-photos" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+  <name>SaveVideoToPhotos</name>
+  <description>Save local video (mp4/mov) to iOS Photos, optional album</description>
+  <js-module name="SaveVideo" src="www/saveVideo.js">
+    <clobbers target="SaveVideo" />
+  </js-module>
+
+  <platform name="ios">
+    <config-file target="*-Info.plist" parent="NSPhotoLibraryAddUsageDescription">
+      <string>Allow saving videos to your Photos library.</string>
+    </config-file>
+    <header-file src="src/ios/SaveVideo.h" />
+    <source-file src="src/ios/SaveVideo.m" />
+    <framework src="Photos.framework" />
+  </platform>
+</plugin>
