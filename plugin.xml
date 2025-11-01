@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="cordova-save-video-photos" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+<plugin id="cordova-plugin-save-video-photos" version="1.0.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
   <name>SaveVideoToPhotos</name>
   <description>Save local video (mp4/mov) to iOS Photos, optional album</description>
+  <license>MIT</license>
+  <keywords>cordova, ios, photos, photokit, video, save</keywords>
   <js-module name="SaveVideo" src="www/saveVideo.js">
-    <clobbers target="SaveVideo" />
+    <clobbers target="SaveVideo"/>
   </js-module>
 
   <platform name="ios">
+    <!-- iOS permission prompt -->
     <config-file target="*-Info.plist" parent="NSPhotoLibraryAddUsageDescription">
       <string>Allow saving videos to your Photos library.</string>
     </config-file>
-    <header-file src="src/ios/SaveVideo.h" />
-    <source-file src="src/ios/SaveVideo.m" />
+
+    <!-- Link PhotoKit -->
     <framework src="Photos.framework" />
+
+    <!-- Native implementation -->
+    <source-file src="src/ios/SaveVideo.m" />
   </platform>
 </plugin>
